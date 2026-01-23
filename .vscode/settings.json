@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "433M.C": "cpp",
+        "rf433.h": "c",
+        "board_ac632n_demo_cfg.h": "c",
+        "key_driver.h": "c",
+        "WS2812FX.H": "cpp",
+        "rf433_app.h": "c",
+        "Adafruit_NeoPixel.H": "cpp",
+        "led_strand_effect.h": "c"
+    }
+}
