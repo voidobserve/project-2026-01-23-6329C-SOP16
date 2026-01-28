@@ -285,6 +285,8 @@ static const uint8_t profile_data[] =
 // #define ATT_CHARACTERISTIC_ae3c_01_CLIENT_CONFIGURATION_HANDLE 0x0045
 
 
+void zd_fb_2_app(u8 *p, u8 len);
+
 #endif
 
 

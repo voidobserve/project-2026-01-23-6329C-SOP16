@@ -21,6 +21,7 @@
 #include "board_ac632n_demo_cfg.h"
 #include "led_strand_effect.h"
 #include "rf24g_app.h"
+#include "app_feedback.h"
 
 // #if TCFG_RF24GKEY_ENABLE
 #if 1
@@ -149,31 +150,41 @@ void rf24_key_handle()
 
             if (key_value == RF24_K03)
             {
-
+                // 流星灯 速度 加
                 extern void ls_speed_plus(void);
                 ls_speed_plus();
                 printf("RF24_K03");
+
+                u8 app_feedback_speed = 100 - fc_effect.speed;
+                app_feedback_meteor_speed(app_feedback_speed);
             }
             else if (key_value == RF24_K04)
             {
+                // 流星灯 速度 减
                 extern void ls_speed_sub(void);
                 ls_speed_sub();
                 printf("RF24_K04");
+
+                u8 app_feedback_speed = 100 - fc_effect.speed;
+                app_feedback_meteor_speed(app_feedback_speed);
             }
             else if (key_value == RF24_K02)
             {
+                // 流星灯 切换模式
                 change_meteor_mode();
                 printf("RF24_K02");
             }
+
             extern void save_user_data_area3(void);
             save_user_data_area3();
         }
 
         if (key_value == RF24_K01)
         {
+            // 流星灯开关
             if (get_on_off_state() == DEVICE_ON)
             {
-                soft_turn_on_the_light(); // 软开灯
+                soft_rurn_off_lights(); // 关灯
                 // OnOff_Synchro(led_state.OpenorCloseflag);   //同步关机
             }
             else
@@ -181,7 +192,9 @@ void rf24_key_handle()
                 soft_turn_on_the_light(); // 软开灯
                 // OnOff_Synchro(led_state.OpenorCloseflag);   //同步开机
             }
+
             save_user_data_area3();
+            app_feedback_meteor_power_status(fc_effect.on_off_flag);
         }
     }
     else if (rf24_T0 > 150)

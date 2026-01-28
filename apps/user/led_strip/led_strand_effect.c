@@ -43,7 +43,8 @@ void fc_data_init(void)
 {
     u16 num;
     fc_effect.on_off_flag = DEVICE_ON;
-    fc_effect.led_num = 15;
+    // fc_effect.led_num = 15;
+    fc_effect.led_num = 12;
     fc_effect.Now_state = ACT_CUSTOM;
     fc_effect.custom_index = 1;
     fc_effect.speed=20;
