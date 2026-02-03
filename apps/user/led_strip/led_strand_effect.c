@@ -257,6 +257,8 @@ extern uint16_t WS2812FX_mode_comet_2(void);
 extern uint16_t WS2812FX_mode_comet_3(void);
     fc_effect.period_cnt = 0;
 
+    printf("fc_effect.custom_index = %u\n", (u16)fc_effect.custom_index);
+
     if( fc_effect.custom_index==1||
         fc_effect.custom_index==2||
         fc_effect.custom_index==3||

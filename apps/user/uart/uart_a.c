@@ -252,6 +252,8 @@ void uart_key_handle(void)
                 // «–ªª…¡µÁ
                 set_mereor_mode(14);
             }
+
+            save_user_data_area3();
         }
 
         memset(_rx_buf, 0, sizeof(_rx_buf));

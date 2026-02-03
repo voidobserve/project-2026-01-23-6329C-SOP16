@@ -1346,6 +1346,7 @@ obj/Release/apps/user/uart/uart_a.o
 -r=obj/Release/apps/user/uart/uart_a.o,min_speed,l
 -r=obj/Release/apps/user/uart/uart_a.o,random_effect,l
 -r=obj/Release/apps/user/uart/uart_a.o,set_mereor_mode,l
+-r=obj/Release/apps/user/uart/uart_a.o,save_user_data_area3,l
 -r=obj/Release/apps/user/uart/uart_a.o,memset,l
 -r=obj/Release/apps/user/uart/uart_a.o,sys_event_notify,l
 -r=obj/Release/apps/user/uart/uart_a.o,uart_rx_flag,pl
