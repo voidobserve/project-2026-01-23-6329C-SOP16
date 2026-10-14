@@ -6,7 +6,8 @@ copy ..\..\uboot.boot .
 copy ..\..\ota.bin .
 copy ..\..\p11_code.bin .
 
-..\..\isd_download.exe -tonorflash -dev bd19 -boot 0x2000 -div8 -wait 300 -uboot uboot.boot -app app.bin cfg_tool.bin -res p11_code.bin -uboot_compress -key 193-AC690X-B718.key -format all 
+@REM  ..\..\isd_download.exe -tonorflash -dev bd19 -boot 0x2000 -div8 -wait 300 -uboot uboot.boot -app app.bin cfg_tool.bin -res p11_code.bin -uboot_compress -format all -key 193-AC690X-B718.key 
+..\..\isd_download.exe -tonorflash -dev bd19 -boot 0x2000 -div8 -wait 300 -uboot uboot.boot -app app.bin cfg_tool.bin -res p11_code.bin -uboot_compress -format all -key XYH-AC690X-D00C.key 
 :: -format all
 ::-reboot 2500
 

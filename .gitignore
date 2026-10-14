@@ -1,0 +1,58 @@
+# ============================================================================
+# JieLi AC63xx SDK (spp_and_le) —— 忽略工程编译产生的中间/输出文件
+#
+# 说明：这里只忽略"由 make / 编译工具链 / IDE 自动生成"的文件；
+#       厂商随 SDK 提供的工具(exe)、预编译库(.a)、烧录所需 bin
+#       (如 bd19loader.bin / bd19loader.uart / rom.lst / *.exe / *.key)
+#       等一律保留，不做忽略。
+# ============================================================================
+
+# ------------------------- 1) 通用编译中间文件 -------------------------
+# 对应顶层 Makefile 的 clean 规则：*.d / *.o / *.z.S
+*.o
+*.d
+*.z.S
+# 预编译展开文件 / 其它编译器副产物
+*.i
+*.obj
+*.pdb
+*.exp
+*.ilk
+
+# ------------------------- 2) 链接 / 打包输出 ---------------------------
+# 链接脚本与 used 列表由 rule.mk 的 out 目标从 sdk_ld.c / sdk_used_list.c 生成
+cpu/*/sdk.ld
+cpu/*/sdk_used_list.used
+cpu/*/sdk_ld.d
+cpu/*/sdk_used_list.d
+
+# 最终固件与调试输出（由 download.bat / download.sh 拷出并打包）
+cpu/*/tools/sdk.elf
+cpu/*/tools/sdk.elf.*
+cpu/*/tools/sdk.lst
+cpu/*/tools/sdk.map
+cpu/*/tools/symbol_tbl.txt
+cpu/*/tools/app.bin
+cpu/*/tools/data_code.bin
+cpu/*/tools/ota.bin
+cpu/*/tools/ota_debug.bin
+cpu/*/tools/p11_code.bin
+cpu/*/tools/uboot.boot
+cpu/*/tools/uboot.boot_debug
+cpu/*/tools/uboot_no_ota.boot
+cpu/*/tools/uboot_no_ota.boot_debug
+cpu/*/tools/isd_config.ini
+cpu/*/tools/isd_config.d
+
+# 由 download.c 编译生成（不是手写脚本）
+cpu/*/tools/download.bat
+cpu/*/tools/download.sh
+cpu/*/tools/download.d
+
+# ------------------------- 3) Code::Blocks 生成文件 ---------------------
+obj/
+*.depend
+*.layout
+
+# ------------------------- 4) 其它构建日志 ------------------------------
+make_log.txt
